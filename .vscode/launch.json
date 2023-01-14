@@ -15,7 +15,7 @@
         {
             "type": "pli",
             "request": "attach",
-            "name": "PL/I: Attach to process",
+   jh g         "name": "PL/I: Attach to process",
             "processId": "${command:pickProcess}"
         }
     ]
