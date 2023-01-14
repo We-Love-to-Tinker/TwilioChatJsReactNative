@@ -1,9 +1,9 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
+/
+  Copyright (c) Facebook, Inc. and its affiliates.
+ 
+  This source code is licensed under the MIT license found in the
+  LICENSE file in the root directory of this source tree.
+ /
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
@@ -20,12 +20,12 @@
 
 @implementation TwilioChatJsReactNativeTests
 
-- (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
+- (BOOL)findSubviewInView:(UIView )view matching:(BOOL(^)(UIView view))test
 {
   if (test(view)) {
     return YES;
   }
-  for (UIView *subview in [view subviews]) {
+  for (UIView subview in [view subviews]) {
     if ([self findSubviewInView:subview matching:test]) {
       return YES;
     }
@@ -35,12 +35,12 @@
 
 - (void)testRendersWelcomeScreen
 {
-  UIViewController *vc = [[[RCTSharedApplication() delegate] window] rootViewController];
-  NSDate *date = [NSDate dateWithTimeIntervalSinceNow:TIMEOUT_SECONDS];
+  UIViewController vc = [[[RCTSharedApplication() delegate] window] rootViewController];
+  NSDate date = [NSDate dateWithTimeIntervalSinceNow:TIMEOUT_SECONDS];
   BOOL foundElement = NO;
 
-  __block NSString *redboxError = nil;
-  RCTSetLogFunction(^(RCTLogLevel level, RCTLogSource source, NSString *fileName, NSNumber *lineNumber, NSString *message) {
+  __block NSString redboxError = nil;
+  RCTSetLogFunction(^(RCTLogLevel level, RCTLogSource source, NSString fileName, NSNumber lineNumber, NSString message) {
     if (level >= RCTLogLevelError) {
       redboxError = message;
     }
@@ -50,7 +50,7 @@
     [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     [[NSRunLoop mainRunLoop] runMode:NSRunLoopCommonModes beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
 
-    foundElement = [self findSubviewInView:vc.view matching:^BOOL(UIView *view) {
+    foundElement = [self findSubviewInView:vc.view matching:^BOOL(UIView view) {
       if ([view.accessibilityLabel isEqualToString:TEXT_TO_LOOK_FOR]) {
         return YES;
       }

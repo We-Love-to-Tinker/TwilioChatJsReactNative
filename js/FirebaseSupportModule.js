@@ -1,10 +1,10 @@
 'use strict';
-/**
- * This exposes the native FirebaseSupportModule as a JS module. This has a
- * function 'showNotification' which takes the following parameters:
- *
- * 1. String message: A string with the text to toast
- */
+/
+  This exposes the native FirebaseSupportModule as a JS module. This has a
+  function 'showNotification' which takes the following parameters:
+ 
+  1. String message: A string with the text to toast
+ /
 import { DeviceEventEmitter, NativeModules, ToastAndroid } from "react-native";
 
 export default class FirebaseSupport {
